@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="congnd91">
+    {% block title%}<title>News</title>{% endblock %}
+    {% load staticfiles %}
+    <!-- Favicons -->
+    <!--<link rel="shortcut icon" href="http://www.cizthemes.com/template/ciznews/images/favicon.png">-->
+    <!--<link rel="apple-touch-icon" href="http://www.cizthemes.com/template/ciznews/images/apple-touch-icon-57x57.png">-->
+    <!--<link rel="apple-touch-icon" sizes="72x72" href="http://www.cizthemes.com/template/ciznews/images/apple-touch-icon-72x72.png">-->
+    <!--<link rel="apple-touch-icon" sizes="114x114" href="http://www.cizthemes.com/template/ciznews/images/apple-touch-icon-114x114.png">-->
+    <!-- Online Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700" rel="stylesheet" />
+    <!-- Vender -->
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/normalize.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/owl.carousel.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/jquery.bxslider.min.css' %}" rel="stylesheet" />
+    <!-- Main CSS (SCSS Compile) -->
+    <link href="{% static 'css/main.css' %}" rel="stylesheet" />
+    <!-- JavaScripts -->
+    <!--<script src="js/modernizr.js"></script>-->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <!--preload-->
+    <!--<div class="loader" id="page-loader">-->
+        <!--<div class="loading-wrapper">-->
+            <!--<p>Loading<span>.</span><span>.</span><span>.</span></p>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--menu mobile-->
+    <nav class="menu-res hidden-lg hidden-md ">
+        <div class="menu-res-inner">
+            <ul>
+                <li>
+                    <a href="{% url 'post:index' %}"> Home </a>
+                </li>
+                <li class="menu-item-has-children">
+                    <a href="category_one.html">
+                        Category
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="{% url 'post:Indian_News' %}">Indian News</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'post:World_News' %}">World News</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'post:Economics' %}">Economics</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'post:Sports' %}">Sports</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'post:Entertainment' %}">Entertainment</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'post:Technology' %}">Technology</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'post:Life_Style' %}">Life Style</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'post:Science_and_Environment' %}">Science and Environment</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="{% url 'post:Life_Style' %}">photos<span></span></a>
+                </li>
+                <li>
+                    <a href="{% url 'post:Life_Style' %}">videos<span></span></a>
+                </li>
+                <li>
+                    <a href="contact.html">Contact </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="page">
+        <div class="container page-wrap">
+            <!--header-->
+            <header class="header">
+                <div class="row">
+                    <a href="index.html" class="logo">
+                        <div>
+                            <img alt="" src="http://www.cizthemes.com/template/ciznews/images/logo.png" />
+                        </div>
+                        <span class="type">{{now}}</span>
+                    </a>
+                </div>
+            </header>
+            <!--menu-->
+            <nav class="menu">
+                <div class="menu-icon hidden-lg hidden-md">
+                    <i class="fa fa-navicon"></i>
+                    <span>MENU</span>
+                </div>
+                <ul class="hidden-sm hidden-xs">
+                    <li>
+                        <a href="{% url 'post:index' %}"><i class="fa fa-home"></i> Home </a>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="category_one.html">
+                            Category
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="{% url 'post:Indian_News' %}">Indian News</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'post:World_News' %}">World News</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'post:Economics' %}">Economics</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'post:Sports' %}">Sports</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'post:Entertainment' %}">Entertainment</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'post:Technology' %}">Technology</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'post:Science_and_Environment' %}">Science and Environment</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'post:Life_Style' %}">Life Style</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="{% url 'post:Life_Style' %}">photos<span></span></a>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="{% url 'post:Life_Style' %}">videos<span></span></a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact </a>
+                    </li>
+                </ul>
+                <div class="menu-right-control">
+                    <a href="index.html#" class="facebook"><i class="fa fa-facebook"></i></a>
+                    <a href="index.html#" class="twitter"><i class="fa fa-twitter"></i></a>
+                    <a href="index.html#" class="youtube"><i class="fa fa-youtube-play"></i></a>
+                    <span class="icon-search">
+                        <i class="fa fa-search"></i>
+                    </span>
+                </div>
+            </nav>
+            <div class="searchbox">
+                <input type="text" placeholder="Search here..." />
+            </div>
+            {% block body %}
+            {% endblock body %}
+            <!--footer-->
+            <footer class="footer">
+                <div class="footer-cols">
+                    <div class="footer-col footer-col-left">
+                        <div class="about">
+                            <a href="index.html" class="logo">
+                                <img alt="" src="http://www.cizthemes.com/template/ciznews/images/logo.png" />
+                            </a>
+                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
+                            <ul class="list-social-icon-footer">
+                                <li>
+                                    <a href="index.html#" class="facebook">
+                                        <i class="fa fa-facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="index.html#" class="twitter">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="index.html#" class="google">
+                                        <i class="fa fa-google"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="index.html#" class="youtube">
+                                        <i class="fa fa-youtube-play"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="index.html#" class="pinterest">
+                                        <i class="fa fa-pinterest-p"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="footer-col footer-col-center">
+                        <h3> CATEGORIES</h3>
+                        <ul class="list-category ">
+                            <li>
+                                <a href="{% url 'post:Indian_News' %}">Indian News</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'post:World_News' %}">World News</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'post:Economics' %}">Economics</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'post:Sports' %}">Sports</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'post:Entertainment' %}">Entertainment</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'post:Technology' %}">Technology</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'post:Science_and_Environment' %}">Science & Environment</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'post:Life_Style' %}">Life Style</a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="footer-col">
+                        <h3>INSTAGRAM</h3>
+                        <ul class="instagram-pics">
+                            <li>
+                                <a href="index.html#">
+                                    <img alt="" src="https://gifer.com/i/7PUr.gif" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="index.html#">
+                                    <img alt="" src="https://cdn.pixabay.com/photo/2014/06/21/08/43/rabbit-373691__340.jpg" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="index.html#">
+                                    <img alt="" src="http://quotesideas.com/wp-content/uploads/2015/10/cute-love-quote-smile-text-Favim.jpg" />
+                                </a>
+                            </li>
+                            <li class="clearfix"></li>
+                        </ul>
+                    </div>
+                    <div class="clearfix">
+                    </div>
+                </div>
+                <!--All right-->
+                <div class="allright">
+                    <span class="totop">
+                        To <br /> top
+                    </span>
+                    <p> © 2018 <a href="{% url 'post:index'%}">RB NEWS</a>. All rights reserved.</p>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-xs-12">
+                    </div>
+                    <div class="col-sm-6 col-xs-12">
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!--scrip file-->
+    {% static 'css/font-awesome.min.css' %}
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js '%}"></script>
+    <script src="{% static 'js/jquery.bxslider.js' %}"></script>
+    <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

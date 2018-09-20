@@ -1,0 +1,210 @@
+﻿{% extends 'post/base.html' %}
+{% block body %}
+<!--cols-->
+<div class="cols">
+    <!--colleft-->
+    <div class="colleft">
+        <div class="cate-caption">
+            {{category}}
+        </div>
+        {% for post in post_list%}
+        <!--post item-->
+        <article class="ciz-post-row">
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+                    <a href="{% url 'post:post' post.id %}">
+                        <img alt="{{post.title}}" src="{%if post.image %}{{post.image.url}}{% endif %}" />
+                    </a>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="post-meta">
+                        <span class="post-date">
+                            {{post.date}}
+                        </span>
+                        <div class="share-posts">
+                            <span>
+                                Share
+                            </span>
+                            <a href="category_three.html#" class="facebook"><i class="fa fa-facebook"></i></a>
+                            <a href="category_three.html#" class="twitter"><i class="fa fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    <h2>
+                        <a href="{% url 'post:post' post.id %}">{{post.title}}</a>
+                    </h2>
+                </div>
+            </div>
+            <div class="post-content">
+                <p>
+                    {{post.post|truncatewords:100}}
+                </p>
+            </div>
+            <a href="{% url 'post:post' post.id %}" class="post-readmore">Read more</a>
+        </article>
+        {% endfor %}
+
+        <div class="paging">
+            <a href="category_three.html#">Prev</a>
+            <a href="category_three.html#">1</a>
+            <span class="current">2</span>
+            <a href="category_three.html#">3</a>
+            <a href="category_three.html#">4</a>
+            <a href="category_three.html#">5</a>
+            <a href="category_three.html#">Next</a>
+        </div>
+    </div>
+
+    <!--colright-->
+    <div class="colright">
+        <!-- dailies-->
+        <div class="dailies">
+            <div class="widget-title widget-title-white ">
+                <span>
+                    DAILIES
+                </span>
+            </div>
+            <div class="dailies-content">
+                <div class="owl-carousel owl-dailies">
+                    <div>
+                        <a href="single_center.html">
+                            <div class="ciz-thumb">
+                                <img alt="" src="http://www.cizthemes.com/template/ciznews/images/w3.jpg" />
+                            </div>
+                        </a>
+                        <h3>
+                            <a href="single_center.html">Satisne vobis videor pro meo iure in vestris auribus commentatus</a>
+                        </h3>
+                    </div>
+                    <div>
+                        <a href="single_center.html">
+                            <div class="ciz-thumb">
+                                <img alt="" src="http://www.cizthemes.com/template/ciznews/images/w2.jpg" />
+                            </div>
+                        </a>
+                        <h3>
+                            <a href="single_center.html">Nulla quis lorem ut libero malesuada feugiat.</a>
+                        </h3>
+                    </div>
+                    <div>
+                        <a href="single_center.html">
+                            <div class="ciz-thumb">
+                                <img alt="" src="http://www.cizthemes.com/template/ciznews/images/p1.jpg" />
+                            </div>
+                        </a>
+                        <h3>
+                            <a href="single_center.html">The ups, downs and future of Tomonobu Itagaki's</a>
+                        </h3>
+                    </div>
+                    <div>
+                        <a href="single_center.html">
+                            <div class="ciz-thumb">
+                                <img alt="" src="http://www.cizthemes.com/template/ciznews/images/w9.jpg" />
+                            </div>
+                        </a>
+                        <h3>
+                            <a href="single_center.html">Donec sollicitudin molestie malesuada.d</a>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- popular posts-->
+        <div class="popular-box">
+            <div class="widget-title">
+                <span>
+                    POPULAR POSTS
+                </span>
+            </div>
+            <div class="list-popular">
+                {% for post in popular_post %}
+                <article class="popular-item">
+                    <div class="ciz-thumb">
+                        <a href="{% url 'post:post' post.id %}">
+                            <img alt="{{post.title}}" src="{% if post.image %}{{post.image.url}} {% endif %}">
+                        </a>
+                    </div>
+                    <div class="post-meta">
+                        <span class="post-category">
+                            <a href="#">{{post.category}}</a>
+                        </span>
+                        <em>/</em>
+                        <span class="post-date">
+                            {{post.date}}
+                        </span>
+                    </div>
+                    <h5><a href="{% url 'post:post' post.id %}">{{post.title}}</a></h5>
+                </article>
+                {% endfor %}
+            </div>
+        </div>
+        <!-- connect us-->
+        <div class="connect-us">
+            <div class="widget-title">
+                <span>
+                    CONNECT & FOLLOW
+                </span>
+            </div>
+            <ul class="list-social-icon">
+                <li>
+                    <a href="category_three.html#" class="facebook">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="category_three.html#" class="twitter">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="category_three.html#" class="google">
+                        <i class="fa fa-google"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="category_three.html#" class="youtube">
+                        <i class="fa fa-youtube-play"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="category_three.html#" class="pinterest">
+                        <i class="fa fa-pinterest-p"></i>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+        <!-- subcribe box-->
+        <div class="subcribe-box">
+            <h3>NEWSLETTER</h3>
+            <p>Enter your email address below to subscribe to my newsletter</p>
+            <input type="text" placeholder="Your email address..." />
+            <button class="my-btn">Subscribe</button>
+        </div>
+        <!-- trend post-->
+        <div class="trend-box">
+            <div class="widget-title">
+                <span>
+                    TREND
+                </span>
+            </div>
+            <ul class="list-trend">
+                {% for post in trending_post %}
+                <li class="trend-item">
+                    <span class="number">
+                        <img alt="{{post.title}}" src="{{post.image.url}}" />
+                        0{{forloop.counter}}
+                    </span>
+                    <h5><a href="{% url 'post:post' post.id %}">{{post.title}}</a></h5>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <!-- advertisement-->
+        <div class="ads hidden-sm hidden-xs ">
+            <p>advertisement</p>
+            <img alt="" src="http://www.cizthemes.com/template/ciznews/images/ads.jpg" class="img-responsive" />
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+    {% endblock %}

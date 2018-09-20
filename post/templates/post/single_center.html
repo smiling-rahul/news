@@ -1,0 +1,223 @@
+﻿{% extends 'post/base.html'%}
+            {%block body %}
+            <!--cols-->
+            <div class="cols cols-full cols-full">
+                <!--colleft-->
+                <div class="colleft">
+                    <!--detail-->
+                    <article class="detail">
+
+                        <div class="content-700">
+                            <br />
+                            <h1 class="text-center">
+                                {{post.title}}
+                            </h1>
+                            <div class="post-meta">
+                                <span class="post-category">
+                                    <a href="category_three.html">{{post.category}}</a>
+                                </span>
+                                <em>/</em>
+                                <span class="post-date">
+                                    {{post.date}}
+                                </span>
+                                <div class="share-posts">
+                                    <span>
+                                        Share
+                                    </span>
+                                    <a href="single_center.html#" class="facebook"><i class="fa fa-facebook"></i></a>
+                                    <a href="single_center.html#" class="twitter"><i class="fa fa-twitter"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="content-700">
+                            <div class="detail-content detail-content-one">
+                                <p>
+                                    {{ post.post }}
+                                </p>
+                                <br />
+                                {% if post.image %}
+                                <img alt="" src="" style="float:left;max-width:300px;margin:5px 20px 15px 0px" />
+                                {% endif %}
+                                <p>
+                                    {{ post.post_para_2 }}
+
+                                </p>
+                                <p>
+                                    {{ post.post_para_3 }}
+                                </p>
+                            </div>
+                        </div>
+                            <div class="w3-container w3-center">
+                                {% if post.image %}
+                                <img class="w3-card-4" alt="" src="{{post.image.url}}" style="max-width:600px;"/>
+                            {% endif %}
+                            </div>
+                        <br>
+                        <div class="content-700">
+                            <h2>The captions</h2>
+                            <div class="detail-content detail-content-one">
+                                <p>{{post.captions}}</p>
+                                <blockquote class="quote-item">
+                                    <div class="quote-item-content">
+                                        <p> {{post.quote}}</p>
+                                        <span>- {{post.quote_by}}</span>
+                                    </div>
+                                </blockquote>
+                                <p>
+                                    {{post.captions_para_2}}
+                                </p>
+                                <p>
+                                    {{post.captions_para_3}}
+                                </p>
+
+                                <h3 class="author-article text-right">- Sue	Benson</h3>
+                            </div>
+                        </div>
+                        <div class="social-article">
+                            <a href="#" class="facebook">facebook</a>
+                            <a href="#" class="google">google</a>
+                            <a href="#" class="twitter">twitter</a>
+                            <a href="#" class="instagram">instagram</a>
+                        </div>
+
+
+                    </article>
+
+                    <!--related-post-->
+                    <div class="box-caption box-caption-small">
+                        <h2><span>RELATED POSTS</span></h2>
+                    </div>
+                    <div class="three-articles">
+                        <div class="row">
+                            <div class="col-md-4 col-xs-12">
+                                <article class="three-item">
+                                    <div class="ciz-thumb">
+                                        <a href="single.html"><img alt="" src="http://www.cizthemes.com/template/ciznews/images/p2.jpg" /></a>
+                                    </div>
+                                    <h5><a href="single.html">Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.</a></h5>
+
+                                </article>
+
+                            </div>
+                            <div class="col-md-4 col-xs-12">
+                                <article class="three-item">
+                                    <div class="ciz-thumb">
+                                        <a href="single.html"><img alt="" src="http://www.cizthemes.com/template/ciznews/images/p3.jpg" /></a>
+                                    </div>
+
+                                    <h5><a href="single.html">The ups, downs and future of Tomonobu Itagaki's </a></h5>
+
+                                </article>
+                            </div>
+                            <div class="col-md-4 col-xs-12">
+                                <article class="three-item">
+                                    <div class="ciz-thumb">
+                                        <a href="single.html"><img alt="" src="http://www.cizthemes.com/template/ciznews/images/p4.jpg" /></a>
+                                    </div>
+
+                                    <h5><a href="single.html">Cras ultricies ligula sed magna dictum porta.</a></h5>
+
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                    <!--comment-->
+                    <!--&lt;!&ndash;comment&ndash;&gt;-->
+                    <!--<div id="comments" class="comments-area">-->
+                        <!--<div class="detail-caption">-->
+                            <!--<span> 2  COMMENTS</span>-->
+                        <!--</div>-->
+                        <!--<ol class="comment-list">-->
+                            <!--<li class="comment">-->
+                                <!--<article class="comment-body">-->
+                                    <!--<footer class="comment-meta">-->
+                                        <!--<div class="comment-author vcard">-->
+                                            <!--<img alt="" src="http://www.cizthemes.com/template/ciznews/images/avatar2.jpg" class="avatar avatar-32 photo">-->
+                                            <!--<b class="fn">John Doe</b> <span class="says">says:</span>-->
+                                        <!--</div>-->
+
+                                        <!--<div class="comment-metadata">-->
+                                            <!--Mar 01 at 8:35 am-->
+                                        <!--</div>-->
+                                    <!--</footer>-->
+
+                                    <!--<div class="comment-content">-->
+                                        <!--<p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>-->
+                                    <!--</div>-->
+
+                                    <!--<div class="reply"><a rel="nofollow" class="comment-reply-link" href="http://www.danhcong.com/themes/teznews/2016/11/11/master-the-art-of-making-great-coffee-with-these-6-tips/?replytocom=43#respond" onclick="return addComment.moveForm( &quot;div-comment-43&quot;, &quot;43&quot;, &quot;respond&quot;, &quot;756&quot; )" aria-label="Reply to SlicerMan">Reply</a></div>-->
+                                <!--</article>-->
+                                <!--<ol class="children">-->
+                                    <!--<li class="comment odd alt depth-2">-->
+                                        <!--<article class="comment-body">-->
+                                            <!--<footer class="comment-meta">-->
+                                                <!--<div class="comment-author vcard">-->
+                                                    <!--<img alt="" src="http://www.cizthemes.com/template/ciznews/images/avatar1.jpg" class="avatar">-->
+                                                    <!--<b class="fn">Admin</b> <span class="says">says:</span>-->
+                                                <!--</div>-->
+
+                                                <!--<div class="comment-metadata">-->
+                                                    <!--Mar 01 at 9:35 am-->
+                                                <!--</div>-->
+                                            <!--</footer>-->
+
+                                            <!--<div class="comment-content">-->
+                                                <!--<p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Mauris blandit aliquet elit.</p>-->
+                                            <!--</div>-->
+
+                                            <!--<div class="reply"><a rel="nofollow" class="comment-reply-link" href="http://www.danhcong.com/themes/teznews/2016/11/11/master-the-art-of-making-great-coffee-with-these-6-tips/?replytocom=44#respond" onclick="return addComment.moveForm( &quot;div-comment-44&quot;, &quot;44&quot;, &quot;respond&quot;, &quot;756&quot; )" aria-label="Reply to SlicerMan">Reply</a></div>-->
+                                        <!--</article>-->
+                                    <!--</li>-->
+                                <!--</ol>-->
+                            <!--</li>-->
+                            <!--<li class="comment">-->
+                                <!--<article class="comment-body">-->
+                                    <!--<footer class="comment-meta">-->
+                                        <!--<div class="comment-author vcard">-->
+                                            <!--<img alt="" src="http://www.cizthemes.com/template/ciznews/images/avatar.jpg" class="avatar avatar-32 photo">-->
+                                            <!--<b class="fn">Tony Baby </b> <span class="says">says:</span>-->
+                                        <!--</div>-->
+                                        <!--<div class="comment-metadata">-->
+                                            <!--Mar 01 at 9:20 am-->
+                                        <!--</div>-->
+                                    <!--</footer>-->
+                                    <!--<div class="comment-content">-->
+                                        <!--<p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.  consectetur adipiscing elit. Vivamus suscipit tortor eget felis porttitor volutpat.</p>-->
+                                    <!--</div>-->
+                                    <!--<div class="reply"><a rel="nofollow" class="comment-reply-link" href="http://www.danhcong.com/themes/teznews/2016/11/11/master-the-art-of-making-great-coffee-with-these-6-tips/?replytocom=43#respond" onclick="return addComment.moveForm( &quot;div-comment-43&quot;, &quot;43&quot;, &quot;respond&quot;, &quot;756&quot; )" aria-label="Reply to SlicerMan">Reply</a></div>-->
+                                <!--</article>-->
+                            <!--</li>-->
+                        <!--</ol>-->
+                        <!--<div class="comment-respond">-->
+                            <!--<div class="comment-reply-title">-->
+                                <!--<div class="detail-caption">-->
+                                    <!--<span>  Leave a reply</span>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div id="commentform" class="comment-form">-->
+                                <!--<div class="field-item">-->
+                                    <!--<textarea id="comment" name="comment" aria-required="true" placeholder="Your Comment Here.."></textarea>-->
+                                <!--</div><div class="row">-->
+                                    <!--<div class="col-md-6 col-sm-6 col-xs-12">-->
+                                        <!--<div class="field-item">-->
+                                            <!--<input id="author" name="author" placeholder="Name *" type="text" value="" tabindex="1">-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="col-md-6 col-sm-6 col-xs-12">-->
+                                        <!--<div class="field-item">-->
+                                            <!--<input id="email" name="email" placeholder="Email *" type="text" value="" tabindex="2">-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<p class="form-submit">-->
+                                    <!--<input name="submit" type="submit" class="my-btn my-btn-dark" value="SUBMIT" />-->
+
+                                <!--</p>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                </div>
+            </div>
+            {% endblock %}
+

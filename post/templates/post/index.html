@@ -1,0 +1,311 @@
+{% extends 'post/base.html'%}
+{% block body %}
+<!--big-article-->
+{% for post in rank_1 %}
+<article class="big-article">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="ciz-thumb">
+                <a href="{% url 'post:post' post.id %}">
+                    {% if post.image%}
+                    <img alt="" src="{{post.image.url}}" />
+                    {% endif %}
+                </a>
+            </div>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="big-article-bar">
+                <div class="post-meta">
+                    <span class="post-category">
+                        <a href="#">{{post.category}}</a>
+                    </span>
+                    <em>/</em>
+                    <span class="post-date">
+                        {{post.date}}
+                    </span>
+                </div>
+                <div class="share-posts">
+                    <span>
+                        Share
+                    </span>
+
+                    <a href="index.html#" class="facebook"><i class="fa fa-facebook"></i></a>
+                    <a href="index.html#" class="twitter"><i class="fa fa-twitter"></i></a>
+                </div>
+            </div>
+            <h1>
+                <a href="{% url 'post:post' post.id %}">
+                    {{post.title}}
+                </a>
+            </h1>
+            <p>{{post.post|truncatewords:100}}</p>
+            <a href="single_one_column.html" class="readmore">READ MORE</a>
+        </div>
+    </div>
+</article>
+{% endfor %}
+<!--recent posts-->
+<div class="box-caption">
+    <h2><span> RECENT POSTS</span></h2>
+</div>
+<!--three recent posts-->
+<div class="three-articles">
+    <div class="row">
+        {% for post in recent_post %}
+            <div class="col-md-4 col-xs-12">
+                <article class="three-item">
+                    {% if post.image %}
+                    <div class="ciz-thumb" style="height:300px;">
+                        <a href="{% url 'post:post' post.id %}"><img alt="" src="{{post.image.url}}" style="max-height:300px; margin-left:auto;margin-right:auto;" /></a>
+                    </div>
+                    {% endif %}
+                    <div class="post-meta">
+                        <span class="post-category">
+                            <a href="#">{{post.category}}</a>
+                        </span>
+                        <em>/</em>
+                        <span class="post-date">
+                            {{post.date}}
+                        </span>
+                    </div>
+                    <h4><a href="{% url 'post:post' post.id %}">{{post.title}}</a></h4>
+                </article>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+<!--cols-->
+<div class="cols">
+    <!--colleft-->
+    <div class="colleft">
+        {% for category,post_list in dictionary.items %}
+            {% if post_list %}
+                <!--post item-->
+                <article class="ciz-post">
+                    <div class="post-meta">
+                        <span class="post-category">
+                            <a href="#">{{category}} </a>
+                        </span>
+                        <em>/</em>
+                        <span class="post-date">
+                            {{post_list.0.date}}
+                        </span>
+                        <div class="share-posts">
+                            <span>
+                                Share
+                            </span>
+                            <a href="index.html#" class="facebook"><i class="fa fa-facebook"></i></a>
+                            <a href="index.html#" class="twitter"><i class="fa fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    <h2>
+                        <a href="{% url 'post:post' post_list.0.id %}">{{post_list.0.title}} </a>
+                    </h2>
+                    <div class="ciz-thumb" style="max-height:600px;overflow: auto;">
+                        <a href="{% url 'post:post' post_list.0.id %}">
+                            <img alt="{{post_list.0.title}}" src="{% if post_list.0.image%}{{post_list.0.image.url}}{% endif %}" class="w3-image"/>
+                        </a>
+                    </div>
+                    <div class="post-content">
+                        <p>
+                            {{post_list.0.post|truncatewords:100}}
+                        </p>
+                    </div>
+                    <a href=" {% url 'post:post' post_list.0.id %} " class="post-readmore">Read more</a>
+                    <div class="box-caption box-caption-small">
+                        <h2><span> in category of {{category}}</span></h2>
+                    </div>
+                    <div class="three-articles">
+                        <div class="row">
+                            {% if post_list.1 %}
+                            <div class="col-md-4 col-xs-12">
+                                <article class="three-item">
+                                    <div class="ciz-thumb">
+                                        <a href=" {% url 'post:post' post_list.1.id %} "><img alt="{{post_list.1.title}}" src="{% if post_list.1.image%}{{post_list.1.image.url}}{% endif %}" /></a>
+                                    </div>
+                                    <h5><a href=" {% url 'post:post' post_list.1.id %} ">{{post_list.1.title }}</a></h5>
+                                </article>
+                            </div>
+                            {% endif %}
+                            {% if post_list.2 %}
+                            <div class="col-md-4 col-xs-12">
+                                <article class="three-item">
+                                    <div class="ciz-thumb">
+                                        <a href=" {% url 'post:post' post_list.2.id %} "><img alt="{{post_list.2.title}}" src="{% if post_list.2.image %}{{post_list.2.image.url}}{%endif%}" /></a>
+                                    </div>
+                                    <h5><a href=" {% url 'post:post' post_list.2.id %} ">{{post_list.2.title}}</a></h5>
+                                </article>
+                            </div>
+                            {% endif %}
+                            {% if post_list.3 %}
+                            <div class="col-md-4 col-xs-12">
+                                <article class="three-item">
+                                    <div class="ciz-thumb">
+                                        <a href=" {% url 'post:post' post_list.3.id %} "><img alt="{{post_list.3.title}}" src="{% if post_list.3.image %}{{post_list.3.image.url}}{% endif %}" /></a>
+                                    </div>
+                                    <h5><a href=" {% url 'post:post' post_list.3.id %} ">{{post_list.3.title}}</a></h5>
+                                </article>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </article>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <!--colright-->
+    <div class="colright">
+        <!-- dailies-->
+        <div class="dailies">
+            <div class="widget-title widget-title-white ">
+                <span>
+                    DAILIES
+                </span>
+            </div>
+            <div class="dailies-content">
+                <div class="owl-carousel owl-dailies">
+                    <div>
+                        <a href="single_center.html">
+                            <div class="ciz-thumb">
+                                <img alt="" src="http://www.cizthemes.com/template/ciznews/images/w3.jpg" />
+                            </div>
+                        </a>
+                        <h3>
+                            <a href="single_center.html">Satisne vobis videor pro meo iure in vestris auribus commentatus</a>
+                        </h3>
+                    </div>
+                    <div>
+                        <a href="single_center.html">
+                            <div class="ciz-thumb">
+                                <img alt="" src="http://www.cizthemes.com/template/ciznews/images/w2.jpg" />
+                            </div>
+                        </a>
+                        <h3>
+                            <a href="single_center.html">Nulla quis lorem ut libero malesuada feugiat.</a>
+                        </h3>
+                    </div>
+                    <div>
+                        <a href="single_center.html">
+                            <div class="ciz-thumb">
+                                <img alt="" src="http://www.cizthemes.com/template/ciznews/images/p1.jpg" />
+                            </div>
+                        </a>
+                        <h3>
+                            <a href="single_center.html">The ups, downs and future of Tomonobu Itagaki's</a>
+                        </h3>
+                    </div>
+                    <div>
+                        <a href="single_center.html">
+                            <div class="ciz-thumb">
+                                <img alt="" src="http://www.cizthemes.com/template/ciznews/images/w9.jpg" />
+                            </div>
+                        </a>
+                        <h3>
+                            <a href="single_center.html">Donec sollicitudin molestie malesuada.d</a>
+                        </h3>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <!-- popular posts-->
+        <div class="popular-box">
+            <div class="widget-title">
+                <span>
+                    POPULAR POSTS
+                </span>
+            </div>
+            <div class="list-popular">
+                {% for post in popular_post %}
+                <article class="popular-item">
+                    <div class="ciz-thumb">
+                        <a href="{% url 'post:post' post.id %}">
+                            <img alt="{{post.title}}" src="{% if post.image %}{{post.image.url}} {% endif %}">
+                        </a>
+                    </div>
+                    <div class="post-meta">
+                        <span class="post-category">
+                            <a href="#">{{post.category}}</a>
+                        </span>
+                        <em>/</em>
+                        <span class="post-date">
+                            {{post.date}}
+                        </span>
+                    </div>
+                    <h5><a href="{% url 'post:post' post.id %}">{{post.title}}</a></h5>
+                </article>
+                {% endfor %}
+            </div>
+        </div>
+        <!-- connect us-->
+        <div class="connect-us">
+            <div class="widget-title">
+                <span>
+                    CONNECT & FOLLOW
+                </span>
+            </div>
+            <ul class="list-social-icon">
+                <li>
+                    <a href="index.html#" class="facebook">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="index.html#" class="twitter">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="index.html#" class="google">
+                        <i class="fa fa-google"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="index.html#" class="youtube">
+                        <i class="fa fa-youtube-play"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="index.html#" class="pinterest">
+                        <i class="fa fa-pinterest-p"></i>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+        <!-- subcribe box-->
+        <div class="subcribe-box">
+            <h3>NEWSLETTER</h3>
+            <p>Enter your email address below to subscribe to my newsletter</p>
+            <input type="text" placeholder="Your email address..." />
+            <button class="my-btn">Subscribe</button>
+        </div>
+        <!-- trend post-->
+        <div class="trend-box trend-box-affix" data-spy="affix">
+            <div class="widget-title">
+                <span>
+                    TREND
+                </span>
+            </div>
+            <ul class="list-trend">
+                {% for post in trending_post %}
+                <li class="trend-item">
+                    <span class="number">
+                        <img alt="" src="{{post.image.url}}" />
+                        0{{forloop.counter}}
+                    </span>
+                    <h5><a href="{% url 'post:post' post.id %}">{{post.title}}</a></h5>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <!-- advertisement-->
+        <div class="ads hidden-sm hidden-xs hidden ">
+            <p>advertisement</p>
+            <img alt="" src="http://www.cizthemes.com/template/ciznews/images/ads.jpg" class="img-responsive" />
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+{% endblock body%}
