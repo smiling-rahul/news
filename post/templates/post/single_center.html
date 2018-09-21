@@ -10,7 +10,7 @@
                         <div class="content-700">
                             <br />
                             <h1 class="text-center">
-                                {{post.title}}
+                                {{post.title|safe}}
                             </h1>
                             <div class="post-meta">
                                 <span class="post-category">
@@ -33,18 +33,18 @@
                         <div class="content-700">
                             <div class="detail-content detail-content-one">
                                 <p>
-                                    {{ post.post }}
+                                    {{ post.post|safe }}
                                 </p>
                                 <br />
                                 {% if post.image %}
                                 <img alt="" src="" style="float:left;max-width:300px;margin:5px 20px 15px 0px" />
                                 {% endif %}
                                 <p>
-                                    {{ post.post_para_2 }}
+                                    {{ post.post_para_2|safe }}
 
                                 </p>
                                 <p>
-                                    {{ post.post_para_3 }}
+                                    {{ post.post_para_3|safe }}
                                 </p>
                             </div>
                         </div>
@@ -57,7 +57,7 @@
                         <div class="content-700">
                             <h2>The captions</h2>
                             <div class="detail-content detail-content-one">
-                                <p>{{post.captions}}</p>
+                                <p>{{post.captions|safe}}</p>
                                 <blockquote class="quote-item">
                                     <div class="quote-item-content">
                                         <p> {{post.quote}}</p>
@@ -65,10 +65,10 @@
                                     </div>
                                 </blockquote>
                                 <p>
-                                    {{post.captions_para_2}}
+                                    {{post.captions_para_2|safe}}
                                 </p>
                                 <p>
-                                    {{post.captions_para_3}}
+                                    {{post.captions_para_3|safe}}
                                 </p>
 
                                 <h3 class="author-article text-right">- Sue	Benson</h3>

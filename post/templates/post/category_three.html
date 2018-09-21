@@ -30,13 +30,13 @@
                         </div>
                     </div>
                     <h2>
-                        <a href="{% url 'post:post' post.id %}">{{post.title}}</a>
+                        <a href="{% url 'post:post' post.id %}">{{post.title|safe}}</a>
                     </h2>
                 </div>
             </div>
             <div class="post-content">
                 <p>
-                    {{post.post|truncatewords:100}}
+                    {{post.post|truncatewords:100|safe}}
                 </p>
             </div>
             <a href="{% url 'post:post' post.id %}" class="post-readmore">Read more</a>
@@ -132,7 +132,7 @@
                             {{post.date}}
                         </span>
                     </div>
-                    <h5><a href="{% url 'post:post' post.id %}">{{post.title}}</a></h5>
+                    <h5><a href="{% url 'post:post' post.id %}">{{post.title|safe}}</a></h5>
                 </article>
                 {% endfor %}
             </div>
