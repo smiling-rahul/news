@@ -7,7 +7,7 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="ciz-thumb">
                 <a href="{% url 'post:post' post.id %}">
-                    {% if post.image%}
+                    {% if post.image %}
                     <img alt="" src="{{post.image.url}}" />
                     {% endif %}
                 </a>
@@ -39,7 +39,7 @@
                 </a>
             </h1>
             <p>{{post.post|truncatewords:100|safe}}</p>
-            <a href="single_one_column.html" class="readmore">READ MORE</a>
+            <a href="{% url 'post:post' post.id %}" class="readmore">READ MORE</a>
         </div>
     </div>
 </article>
