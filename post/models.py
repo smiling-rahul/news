@@ -62,7 +62,7 @@ def create_slug(instance,new_slug=None):
     if new_slug is not None:
         slug=new_slug
     qs =Post.objects.filter(slug=slug).order_by("-id")
-    exist=qs.exist()
+    exist=qs.exists()
     if exist:
         new_slug="%s-%s"%(instance.title,qs.first().id)
         return create_slug(instance,new_slug)

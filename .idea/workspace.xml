@@ -2,26 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef22c50a-f642-467a-9972-5f834738eacf" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/post/forms.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/post/templates/post/post_form.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/post_image/2018/09/13/16482965722_64dcaeb26a_b.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/post_image/2018/09/14/222915.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/post_image/2018/09/14/3l1rlpng_pm-modi_625x300_13_September_18.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/post_image/2018/09/15/091318_CG_hurricane_inline_730.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/post_image/2018/09/15/091318_EC_nuclear-pasta_feat.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/post_image/2018/09/15/220px-Ice_Cream_dessert_02.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/post_image/2018/09/25/authentic_leather_1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/post_image/2018/09/25/birthday.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/post/migrations/0001_initial.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news/settings.py" afterPath="$PROJECT_DIR$/news/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/post/forms.py" afterPath="$PROJECT_DIR$/post/forms.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/post/models.py" afterPath="$PROJECT_DIR$/post/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/post/static/post/css/main.css" afterPath="$PROJECT_DIR$/post/static/post/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/post/templates/post/base.html" afterPath="$PROJECT_DIR$/post/templates/post/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/post/templates/post/index.html" afterPath="$PROJECT_DIR$/post/templates/post/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/post/templates/post/single_center.html" afterPath="$PROJECT_DIR$/post/templates/post/single_center.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/post/urls.py" afterPath="$PROJECT_DIR$/post/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/post/views.py" afterPath="$PROJECT_DIR$/post/views.py" />
     </list>
     <ignored path="news.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,14 +26,14 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/news/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
+            <state relative-caret-position="459">
               <caret line="27" column="103" selection-start-line="27" selection-start-column="103" selection-end-line="27" selection-end-column="103" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="post_form.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="post_form.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/post/templates/post/post_form.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
@@ -61,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="forms.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/post/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="96" column="31" selection-start-line="96" selection-start-column="31" selection-end-line="96" selection-end-column="31" />
+            <state relative-caret-position="163">
+              <caret line="100" column="11" selection-start-line="100" selection-start-column="11" selection-end-line="100" selection-end-column="11" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
               </folding>
@@ -76,8 +58,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/post/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="49" column="10" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="10" />
+            <state relative-caret-position="323">
+              <caret line="64" column="19" selection-start-line="64" selection-start-column="19" selection-end-line="64" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -86,8 +68,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/post/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="894">
-              <caret line="111" column="46" selection-start-line="111" selection-start-column="46" selection-end-line="111" selection-end-column="46" />
+            <state relative-caret-position="316">
+              <caret line="105" column="27" selection-start-line="105" selection-start-column="27" selection-end-line="105" selection-end-column="27" />
               <folding>
                 <element signature="e#0#70#0" expanded="true" />
               </folding>
@@ -129,11 +111,11 @@
         <option value="$PROJECT_DIR$/post/static/post/css/main.css" />
         <option value="$PROJECT_DIR$/post/templates/post/base.html" />
         <option value="$PROJECT_DIR$/post/templates/post/single_center.html" />
-        <option value="$PROJECT_DIR$/post/models.py" />
         <option value="$PROJECT_DIR$/post/urls.py" />
         <option value="$PROJECT_DIR$/post/views.py" />
-        <option value="$PROJECT_DIR$/post/forms.py" />
         <option value="$PROJECT_DIR$/post/templates/post/post_form.html" />
+        <option value="$PROJECT_DIR$/post/models.py" />
+        <option value="$PROJECT_DIR$/post/forms.py" />
       </list>
     </option>
   </component>
@@ -423,18 +405,54 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/news/settings.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="103" selection-start-line="27" selection-start-column="103" selection-end-line="27" selection-end-column="103" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/post/templates/post/post_form.html">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/news/urls.py">
+    <entry file="file://$PROJECT_DIR$/post/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="26" column="56" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="56" />
+        <state relative-caret-position="1632">
+          <caret line="96" column="31" selection-start-line="96" selection-start-column="31" selection-end-line="96" selection-end-column="31" />
           <folding>
-            <element signature="e#628#660#0" expanded="false" />
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/post/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="49" column="10" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/post/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1887">
+          <caret line="111" column="46" selection-start-line="111" selection-start-column="46" selection-end-line="111" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#70#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/post/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="21" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -451,9 +469,21 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="26" column="56" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="56" />
-          <folding>
-            <element signature="e#628#660#0" expanded="false" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/news/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/news/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="26" column="56" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="56" />
         </state>
       </provider>
     </entry>
@@ -529,55 +559,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/media/post_image/2018/09/15/091318_EC_nuclear-pasta_feat.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/media/post_image/2018/09/14/3l1rlpng_pm-modi_625x300_13_September_18.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/media/post_image/2018/09/14/222915.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/media/post_image/2018/09/13/16482965722_64dcaeb26a_b.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/media/post_image/2018/09/15/091318_EC_nuclear-pasta_feat.jpg" />
+    <entry file="file://$PROJECT_DIR$/media/post_image/2018/09/14/3l1rlpng_pm-modi_625x300_13_September_18.jpg" />
+    <entry file="file://$PROJECT_DIR$/media/post_image/2018/09/14/222915.jpg" />
+    <entry file="file://$PROJECT_DIR$/media/post_image/2018/09/13/16482965722_64dcaeb26a_b.jpg" />
     <entry file="file://$PROJECT_DIR$/media/post_image/2018/09/25/authentic_leather_1_QcCEUj6.png" />
-    <entry file="file://$PROJECT_DIR$/media/post_image/2018/09/25/authentic_leather_1.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/media/post_image/2018/09/15/091318_CG_hurricane_inline_730.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/media/post_image/2018/09/15/220px-Ice_Cream_dessert_02.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/media/post_image/2018/09/25/authentic_leather_1.png" />
+    <entry file="file://$PROJECT_DIR$/media/post_image/2018/09/15/091318_CG_hurricane_inline_730.jpg" />
+    <entry file="file://$PROJECT_DIR$/media/post_image/2018/09/15/220px-Ice_Cream_dessert_02.jpg" />
     <entry file="file://$PROJECT_DIR$/news/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="392">
           <caret line="26" column="56" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="56" />
-          <folding>
-            <element signature="e#628#660#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/news/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
+        <state relative-caret-position="459">
           <caret line="27" column="103" selection-start-line="27" selection-start-column="103" selection-end-line="27" selection-end-column="103" />
           <folding />
         </state>
@@ -587,7 +586,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -595,7 +593,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-4046">
           <caret line="525" column="23" selection-start-line="525" selection-start-column="23" selection-end-line="525" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -611,7 +608,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2532">
           <caret line="275" column="61" selection-start-line="275" selection-start-column="61" selection-end-line="275" selection-end-column="61" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -619,14 +615,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/post/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="49" column="10" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="10" />
           <folding />
         </state>
       </provider>
@@ -641,31 +629,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/post/forms.py">
+    <entry file="file://$PROJECT_DIR$/post/templates/post/post_form.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="96" column="31" selection-start-line="96" selection-start-column="31" selection-end-line="96" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="34">
+          <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/post/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="894">
-          <caret line="111" column="46" selection-start-line="111" selection-start-column="46" selection-end-line="111" selection-end-column="46" />
+        <state relative-caret-position="316">
+          <caret line="105" column="27" selection-start-line="105" selection-start-column="27" selection-end-line="105" selection-end-column="27" />
           <folding>
             <element signature="e#0#70#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/post/templates/post/post_form.html">
+    <entry file="file://$PROJECT_DIR$/post/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
+        <state relative-caret-position="323">
+          <caret line="64" column="19" selection-start-line="64" selection-start-column="19" selection-end-line="64" selection-end-column="19" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/post/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="100" column="11" selection-start-line="100" selection-start-column="11" selection-end-line="100" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
