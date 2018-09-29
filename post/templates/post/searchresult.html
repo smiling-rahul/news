@@ -1,0 +1,33 @@
+{% extends 'post/base.html'%}
+{% load class_name %}
+{% block title%}Search result{% endblock %}
+{% block body %}
+<section class="white-bg">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+            <div class="w3-container">
+                  <h3 class="widget-title">results for <b>{{query}}</b></h3>
+                  <ul class="w3-ul w3-card">
+                      {% for object in object_list %}
+                            {% with object|class_name as klass %}
+                              {% if klass == 'Post' %}
+                              <li>
+                                  <a href="{% url 'post:post' post.sluge %}" target="_blank">post: {{ object.title }}</a>
+                              </li>
+                              {% else %}
+                                      <li>
+                                          <a href=''>{{ object }} | {{ object|class_name }}</a>
+                                      </li>
+                                {% endif %}
+                            {% endwith %}
+                        {% empty %}
+                        {% endfor %}
+                  </ul>
+              </div>
+        </div>
+
+     </div>
+</div>
+    </section>
+{% endblock %}

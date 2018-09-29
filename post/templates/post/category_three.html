@@ -44,13 +44,17 @@
         {% endfor %}
 
         <div class="paging">
-            <a href="category_three.html#">Prev</a>
-            <a href="category_three.html#">1</a>
-            <span class="current">2</span>
-            <a href="category_three.html#">3</a>
-            <a href="category_three.html#">4</a>
-            <a href="category_three.html#">5</a>
-            <a href="category_three.html#">Next</a>
+            <ul class="pagination">
+                    {% if assignment.has_previous %}
+                  <li><a href="?page={{ assignment.previous_page_number }}">Prev</a></li>
+                  <li class="active"><a href="?page=1">1</a></li>
+                    {% endif %}
+                  <li><a href="blog-default.html#">Page {{ assignment.number }} of {{ assignment.paginator.num_pages }}</a></li>
+                    {% if assignment.has_next %}
+                  <li><a href="?page={{ assignment.next_page_number }}">Next</a></li>
+                    <li><a href="?page={{ assignment.paginator.num_pages }}">last</a></li>
+                    {% endif %}
+                </ul>
         </div>
     </div>
 

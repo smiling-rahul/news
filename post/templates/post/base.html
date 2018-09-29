@@ -167,7 +167,10 @@
                 </div>
             </nav>
             <div class="searchbox">
-                <input type="text" placeholder="Search here..." />
+                <form action="{% url 'post:search' %}" method="get" accept-charset="utf-8" id="fullscreen-searchform">
+                  <input type="text" name="q"  placeholder="Search..." id="fullscreen-search-input" class="search-bar-top">
+                  <i class="fullscreen-search-icon mdi mdi-magnify"><input value="" type="submit"></i>
+                </form>
             </div>
             {% block body %}
             {% endblock body %}
@@ -285,11 +288,11 @@
     </div>
     <!--scrip file-->
     {% static 'css/font-awesome.min.css' %}
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.js' %}"></script>
-    <script src="{% static 'js/owl.carousel.min.js '%}"></script>
-    <script src="{% static 'js/jquery.bxslider.js' %}"></script>
-    <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
-    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'post/js/jquery.min.js' %}"></script>
+    <script src="{% static 'post/js/bootstrap.js' %}"></script>
+    <script src="{% static 'post/js/owl.carousel.min.js '%}"></script>
+    <script src="{% static 'post/js/jquery.bxslider.js' %}"></script>
+    <script src="{% static 'post/js/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'post/js/main.js' %}"></script>
 </body>
 </html>

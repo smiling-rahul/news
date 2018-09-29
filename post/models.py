@@ -1,10 +1,18 @@
 from django.db import models
 from django.utils.timezone import now
-from django.utils.text import slugify
-from django.db.models.signals import pre_save
+from django.db.models import Q
 
 # Create your models here.
 class PostQuerySet(models.QuerySet):
+    def search(self, query=None):
+        qs = self
+        if query is not None:
+            or_lookup = (Q(title__icontains = query) |
+                         Q(category__icontains = query)
+                         )
+            qs = qs.filter(or_lookup).distinct()  # distinct() is often necessary with Q lookups
+        return qs
+
     def rank_1(self):
         return self.filter(rating='5')
 
@@ -12,6 +20,9 @@ class PostQuerySet(models.QuerySet):
 class PostManager(models.Manager):
     def get_queryset(self):
         return PostQuerySet(self.model,using=self._db)
+
+    def search(self,query=None):
+        return self.get_queryset().search(query=query)
 
     def rank_1(self):
         return self.get_queryset().rank_1()
@@ -57,29 +68,5 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
-def create_slug(instance,new_slug=None):
-    slug=slugify(instance.title)
-    if new_slug is not None:
-        slug=new_slug
-    qs =Post.objects.filter(slug=slug).order_by("-id")
-    exist=qs.exists()
-    if exist:
-        new_slug="%s-%s"%(instance.title,qs.first().id)
-        return create_slug(instance,new_slug)
-    return slug
-
-def pre_save_post_receiver(sender,instance,*args,**kwargs):
-    if not instance.slug:
-        instance.slug=create_slug(instance)
-
-
-    # slug=slugify(instance.title)
-    # exist=Post.objects.filter(slug=slug).exist()
-    # if exist:
-    #     slug="%s-%s"%(slug,instance.id)
-    # instance.slug=slug
-
-
-pre_save.connect(pre_save_post_receiver,sender=Post)
 
 

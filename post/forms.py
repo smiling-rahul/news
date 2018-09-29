@@ -94,12 +94,6 @@ class PostForm(forms.ModelForm):
         }
     ),required=False)
 
-    # rating = forms.IntegerField(widget=forms.TextInput(
-    #     attrs={
-    #         'class': 'form-control',
-    #         'placeholder': 'Enter the rating'
-    #     }
-    # ),required=False)
     class Meta:
         model = Post
         fields = ('category', 'title','post', 'post_para_2','post_para_3','captions',

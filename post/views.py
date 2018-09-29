@@ -1,14 +1,16 @@
 from django.shortcuts import render,redirect,reverse,get_object_or_404
 from django.views.generic import ListView,DetailView,CreateView,UpdateView,DeleteView,View
-
+from django.core.paginator import Paginator
 from .models import Post,Category
 from django.utils.timezone import now
 from urllib.parse import quote_plus
 from .forms import PostForm
+from django.utils.text import slugify
+from itertools import chain
 
 # Create your views here.
 def index(request):
-    rank_1=Post.objects.rank_1()
+    rank_1=Post.objects.rank_1().order_by('-date')[:1]
     recent_post=Post.objects.all().order_by('-date')[:3]
     categories=Category.objects.all()
     dictionary = {}
@@ -26,6 +28,9 @@ def Indian_News(request):
     post_list = Post.objects.filter(category=category).order_by('-date')
     popular_post = Post.objects.filter(rating='3').order_by('-date')[:5]
     trending_post = Post.objects.filter(rating='4').order_by('-date')[:5]
+    paginator = Paginator(post_list, 20)
+    page = request.GET.get('page')
+    post_list = paginator.get_page(page)
     return render(request, 'post/category_three.html', {'now':now(),'post_list': post_list,
                                                         'category':category,'popular_post':popular_post,
                                                         'trending_post':trending_post,})
@@ -35,6 +40,9 @@ def World_News(request):
     post_list = Post.objects.filter(category=category).order_by('-date')
     popular_post = Post.objects.filter(rating='3').order_by('-date')[:5]
     trending_post = Post.objects.filter(rating='4').order_by('-date')[:5]
+    paginator = Paginator(post_list, 20)
+    page = request.GET.get('page')
+    post_list = paginator.get_page(page)
     return render(request, 'post/category_three.html',{'now': now(), 'post_list': post_list,
                                                        'category': category, 'popular_post': popular_post,
                                                        'trending_post': trending_post,})
@@ -43,6 +51,9 @@ def Economics(request):
     post_list = Post.objects.filter(category=category).order_by('-date')
     popular_post = Post.objects.filter(rating='3').order_by('-date')[:5]
     trending_post = Post.objects.filter(rating='4').order_by('-date')[:5]
+    paginator = Paginator(post_list, 20)
+    page = request.GET.get('page')
+    post_list = paginator.get_page(page)
     return render(request, 'post/category_three.html',
                   {'now': now(), 'post_list': post_list, 'category': category, 'popular_post': popular_post,
                    'trending_post': trending_post,})
@@ -52,6 +63,9 @@ def Sports(request):
     post_list = Post.objects.filter(category=category).order_by('-date')
     popular_post = Post.objects.filter(rating='3').order_by('-date')[:5]
     trending_post = Post.objects.filter(rating='4').order_by('-date')[:5]
+    paginator = Paginator(post_list, 20)
+    page = request.GET.get('page')
+    post_list = paginator.get_page(page)
     return render(request, 'post/category_three.html',
                   {'now': now(), 'post_list': post_list, 'category': category, 'popular_post': popular_post,
                    'trending_post': trending_post,})
@@ -61,6 +75,9 @@ def Entertainment(request):
     post_list = Post.objects.filter(category=category).order_by('-date')
     popular_post = Post.objects.filter(rating='3').order_by('-date')[:5]
     trending_post = Post.objects.filter(rating='4').order_by('-date')[:5]
+    paginator = Paginator(post_list, 20)
+    page = request.GET.get('page')
+    post_list = paginator.get_page(page)
     return render(request, 'post/category_three.html',
                   {'now': now(), 'post_list': post_list, 'category': category, 'popular_post': popular_post,
                    'trending_post': trending_post,})
@@ -70,6 +87,9 @@ def Technology(request):
     post_list = Post.objects.filter(category=category).order_by('-date')
     popular_post = Post.objects.filter(rating='3').order_by('-date')[:5]
     trending_post = Post.objects.filter(rating='4').order_by('-date')[:5]
+    paginator = Paginator(post_list, 20)
+    page = request.GET.get('page')
+    post_list = paginator.get_page(page)
     return render(request, 'post/category_three.html',
                   {'now': now(), 'post_list': post_list, 'category': category, 'popular_post': popular_post,
                    'trending_post': trending_post,})
@@ -78,6 +98,9 @@ def Life_Style(request):
     post_list = Post.objects.filter(category=category).order_by('-date')
     popular_post = Post.objects.filter(rating='3').order_by('-date')[:5]
     trending_post = Post.objects.filter(rating='4').order_by('-date')[:5]
+    paginator = Paginator(post_list, 20)
+    page = request.GET.get('page')
+    post_list = paginator.get_page(page)
     return render(request, 'post/category_three.html',
                   {'now': now(), 'post_list': post_list, 'category': category, 'popular_post': popular_post,
                    'trending_post': trending_post,})
@@ -87,6 +110,9 @@ def Science_and_Environment(request):
     post_list = Post.objects.filter(category=category).order_by('-date')
     popular_post = Post.objects.filter(rating='3').order_by('-date')[:5]
     trending_post = Post.objects.filter(rating='4').order_by('-date')[:5]
+    paginator = Paginator(post_list, 20)
+    page = request.GET.get('page')
+    post_list = paginator.get_page(page)
     return render(request, 'post/category_three.html',
                   {'now': now(), 'post_list': post_list, 'category': category, 'popular_post': popular_post,
                    'trending_post': trending_post,})
@@ -103,6 +129,10 @@ def create_post(request):
             form = PostForm(request.POST, request.FILES)
             if form.is_valid():
                 post = form.save(commit=False)
+                post.slug=slugify(post.title)
+                post.save()
+                slug = '%s %s' % (post.title, post.id)
+                post.slug = slugify(slug)
                 post.save()
                 return redirect(reverse('post:index'))
         else:
@@ -110,6 +140,39 @@ def create_post(request):
         return render(request,'post/post_form.html',{'form': form})
     else:
         return redirect(reverse('post:index'))
+
+################
+# new search view
+################
+class SearchView(ListView):
+    template_name = 'post/searchresult.html'
+    paginate_by = 20
+    count = 0
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['count'] = self.count or 0
+        context['query'] = self.request.GET.get('q')
+        return context
+
+    def get_queryset(self):
+        request = self.request
+        query = request.GET.get('q', None)
+
+        if query is not None:
+            post_results= Post.objects.search(query)
+
+            # combine querysets
+            # queryset_chain = chain(
+            #     post_results
+            #
+            # )
+            qs = sorted(post_results,
+                        key=lambda instance: instance.pk,
+                        reverse=True)
+            self.count = len(qs) # since qs is actually a list
+            return qs
+        return Post.objects.none() # just an empty queryset as default
 
 
 
