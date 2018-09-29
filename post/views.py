@@ -1,9 +1,12 @@
 from django.shortcuts import render,redirect,reverse,get_object_or_404
 from django.views.generic import ListView,DetailView,CreateView,UpdateView,DeleteView,View
-# Create your views here.
+
 from .models import Post,Category
 from django.utils.timezone import now
+from urllib.parse import quote_plus
+from .forms import PostForm
 
+# Create your views here.
 def index(request):
     rank_1=Post.objects.rank_1()
     recent_post=Post.objects.all().order_by('-date')[:3]
@@ -87,8 +90,27 @@ def Science_and_Environment(request):
     return render(request, 'post/category_three.html',
                   {'now': now(), 'post_list': post_list, 'category': category, 'popular_post': popular_post,
                    'trending_post': trending_post,})
-def post(request,pk):
-    post = get_object_or_404(Post,pk=pk)
-    return render(request, 'post/single_center.html',{'now':now(),'post':post})
+
+def post(request,slug):
+    post = get_object_or_404(Post,slug=slug)
+    share_string=quote_plus(post.title)
+    return render(request, 'post/single_center.html',{'now':now(),'post':post,'share_string':share_string})
+
+
+def create_post(request):
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            form = PostForm(request.POST, request.FILES)
+            if form.is_valid():
+                post = form.save(commit=False)
+                post.save()
+                return redirect(reverse('post:index'))
+        else:
+            form = PostForm
+        return render(request,'post/post_form.html',{'form': form})
+    else:
+        return redirect(reverse('post:index'))
+
+
 
 

@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="ciz-thumb">
-                <a href="{% url 'post:post' post.id %}">
+                <a href="{% url 'post:post' post.slug %}">
                     {% if post.image %}
                     <img alt="" src="{{post.image.url}}" />
                     {% endif %}
@@ -34,12 +34,12 @@
                 </div>
             </div>
             <h1>
-                <a href="{% url 'post:post' post.id %}">
+                <a href="{% url 'post:post' post.slug %}">
                     {{post.title|safe}}
                 </a>
             </h1>
             <p>{{post.post|truncatewords:100|safe}}</p>
-            <a href="{% url 'post:post' post.id %}" class="readmore">READ MORE</a>
+            <a href="{% url 'post:post' post.slug %}" class="readmore">READ MORE</a>
         </div>
     </div>
 </article>
@@ -56,7 +56,7 @@
                 <article class="three-item">
                     {% if post.image %}
                     <div class="ciz-thumb" style="height:300px;">
-                        <a href="{% url 'post:post' post.id %}"><img alt="" src="{{post.image.url}}" style="max-height:300px; margin-left:auto;margin-right:auto;" /></a>
+                        <a href="{% url 'post:post' post.slug %}"><img alt="" src="{{post.image.url}}" style="max-height:300px; margin-left:auto;margin-right:auto;" /></a>
                     </div>
                     {% endif %}
                     <div class="post-meta">
@@ -68,7 +68,7 @@
                             {{post.date}}
                         </span>
                     </div>
-                    <h4><a href="{% url 'post:post' post.id %}">{{post.title|safe}}</a></h4>
+                    <h4><a href="{% url 'post:post' post.slug %}">{{post.title|safe}}</a></h4>
                 </article>
             </div>
         {% endfor %}
@@ -99,10 +99,10 @@
                         </div>
                     </div>
                     <h2>
-                        <a href="{% url 'post:post' post_list.0.id %}">{{post_list.0.title|safe}} </a>
+                        <a href="{% url 'post:post' post_list.0.slug %}">{{post_list.0.title|safe}} </a>
                     </h2>
                     <div class="ciz-thumb" style="max-height:600px;overflow: auto;">
-                        <a href="{% url 'post:post' post_list.0.id %}">
+                        <a href="{% url 'post:post' post_list.0.slug %}">
                             <img alt="{{post_list.0.title}}" src="{% if post_list.0.image%}{{post_list.0.image.url}}{% endif %}" class="w3-image"/>
                         </a>
                     </div>
@@ -111,7 +111,7 @@
                             {{post_list.0.post|truncatewords:100|safe}}
                         </p>
                     </div>
-                    <a href=" {% url 'post:post' post_list.0.id %} " class="post-readmore">Read more</a>
+                    <a href=" {% url 'post:post' post_list.0.slug %} " class="post-readmore">Read more</a>
                     <div class="box-caption box-caption-small">
                         <h2><span> in category of {{category}}</span></h2>
                     </div>
@@ -121,9 +121,9 @@
                             <div class="col-md-4 col-xs-12">
                                 <article class="three-item">
                                     <div class="ciz-thumb">
-                                        <a href=" {% url 'post:post' post_list.1.id %} "><img alt="{{post_list.1.title|safe}}" src="{% if post_list.1.image%}{{post_list.1.image.url}}{% endif %}" /></a>
+                                        <a href=" {% url 'post:post' post_list.1.slug %} "><img alt="{{post_list.1.title|safe}}" src="{% if post_list.1.image%}{{post_list.1.image.url}}{% endif %}" /></a>
                                     </div>
-                                    <h5><a href=" {% url 'post:post' post_list.1.id %} ">{{post_list.1.title|safe}}</a></h5>
+                                    <h5><a href=" {% url 'post:post' post_list.1.slug %} ">{{post_list.1.title|safe}}</a></h5>
                                 </article>
                             </div>
                             {% endif %}
@@ -131,9 +131,9 @@
                             <div class="col-md-4 col-xs-12">
                                 <article class="three-item">
                                     <div class="ciz-thumb">
-                                        <a href=" {% url 'post:post' post_list.2.id %} "><img alt="{{post_list.2.title}}" src="{% if post_list.2.image %}{{post_list.2.image.url}}{%endif%}" /></a>
+                                        <a href=" {% url 'post:post' post_list.2.slug %} "><img alt="{{post_list.2.title}}" src="{% if post_list.2.image %}{{post_list.2.image.url}}{%endif%}" /></a>
                                     </div>
-                                    <h5><a href=" {% url 'post:post' post_list.2.id %} ">{{post_list.2.title|safe}}</a></h5>
+                                    <h5><a href=" {% url 'post:post' post_list.2.slug %} ">{{post_list.2.title|safe}}</a></h5>
                                 </article>
                             </div>
                             {% endif %}
@@ -141,9 +141,9 @@
                             <div class="col-md-4 col-xs-12">
                                 <article class="three-item">
                                     <div class="ciz-thumb">
-                                        <a href=" {% url 'post:post' post_list.3.id %} "><img alt="{{post_list.3.title}}" src="{% if post_list.3.image %}{{post_list.3.image.url}}{% endif %}" /></a>
+                                        <a href=" {% url 'post:post' post_list.3.slug %} "><img alt="{{post_list.3.title}}" src="{% if post_list.3.image %}{{post_list.3.image.url}}{% endif %}" /></a>
                                     </div>
-                                    <h5><a href=" {% url 'post:post' post_list.3.id %} ">{{post_list.3.title|safe}}</a></h5>
+                                    <h5><a href=" {% url 'post:post' post_list.3.slug %} ">{{post_list.3.title|safe}}</a></h5>
                                 </article>
                             </div>
                             {% endif %}
@@ -198,7 +198,7 @@
                 {% for post in popular_post %}
                 <article class="popular-item">
                     <div class="ciz-thumb">
-                        <a href="{% url 'post:post' post.id %}">
+                        <a href="{% url 'post:post' post.slug %}">
                             <img alt="{{post.title}}" src="{% if post.image %}{{post.image.url}} {% endif %}">
                         </a>
                     </div>
@@ -211,7 +211,7 @@
                             {{post.date}}
                         </span>
                     </div>
-                    <h5><a href="{% url 'post:post' post.id %}">{{post.title|safe}}</a></h5>
+                    <h5><a href="{% url 'post:post' post.slug %}">{{post.title|safe}}</a></h5>
                 </article>
                 {% endfor %}
             </div>
@@ -273,7 +273,7 @@
                         <img alt="" src="{{post.image.url}}" />
                         0{{forloop.counter}}
                     </span>
-                    <h5><a href="{% url 'post:post' post.id %}">{{post.title|safe}}</a></h5>
+                    <h5><a href="{% url 'post:post' post.slug %}">{{post.title|safe}}</a></h5>
                 </li>
                 {% endfor %}
             </ul>

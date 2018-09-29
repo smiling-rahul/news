@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '5a_w3!2(03lo2@xs^p8@p75@t586!5k2+yr554)!zp%2nxdq@s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['morningnation.co.in','www.morningnation.co.in','www4.morningnation.co.in']
+ALLOWED_HOSTS = ['morningnation.co.in','www.morningnation.co.in','www4.morningnation.co.in','127.0.0.1']
 
 
 # Application definition
