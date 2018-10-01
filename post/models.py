@@ -7,8 +7,10 @@ class PostQuerySet(models.QuerySet):
     def search(self, query=None):
         qs = self
         if query is not None:
-            or_lookup = (Q(title__icontains = query) |
-                         Q(category__icontains = query)
+            or_lookup = (
+                         Q(title__icontains = query) |
+                         Q(post__icontains=query) |
+                         Q(category__category__icontains=query)
                          )
             qs = qs.filter(or_lookup).distinct()  # distinct() is often necessary with Q lookups
         return qs
@@ -28,13 +30,31 @@ class PostManager(models.Manager):
         return self.get_queryset().rank_1()
 
 
-    # def rank_1(self):
-    #     return self.get_queryset().rank_1()
+
+class CategoryQuerySet(models.QuerySet):
+    def search(self, query=None):
+        qs = self
+        if query is not None:
+            or_lookup = (
+                         Q(category__icontains = query) |
+                         Q(date__icontains=query)
+                         )
+            qs = qs.filter(or_lookup).distinct()  # distinct() is often necessary with Q lookups
+        return qs
+
+class CategoryManager(models.Manager):
+    def get_queryset(self):
+        return CategoryQuerySet(self.model,using=self._db)
+
+    def search(self,query=None):
+        return self.get_queryset().search(query=query)
 
 class Category(models.Model):
     category=models.CharField(max_length=50)
     rating=models.IntegerField(default=0)
     date = models.DateTimeField(default=now)
+
+    objects = CategoryManager()
 
     def __str__(self):
         return self.category
@@ -61,7 +81,6 @@ class Post(models.Model):
     rating=models.IntegerField(default=0)
 
     slug =models.SlugField(unique=True,max_length=100)
-
 
     objects=PostManager()
 

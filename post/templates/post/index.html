@@ -17,7 +17,7 @@
             <div class="big-article-bar">
                 <div class="post-meta">
                     <span class="post-category">
-                        <a href="#">{{post.category}}</a>
+                        <a href="{% url 'post:category_news' post.category %}">{{post.category}}</a>
                     </span>
                     <em>/</em>
                     <span class="post-date">
@@ -61,7 +61,7 @@
                     {% endif %}
                     <div class="post-meta">
                         <span class="post-category">
-                            <a href="#">{{post.category}}</a>
+                            <a href="{% url 'post:category_news' post.category %}">{{post.category}}</a>
                         </span>
                         <em>/</em>
                         <span class="post-date">
@@ -84,7 +84,7 @@
                 <article class="ciz-post">
                     <div class="post-meta">
                         <span class="post-category">
-                            <a href="#">{{category}} </a>
+                            <a href="{% url 'post:category_news' category %}">{{category}} </a>
                         </span>
                         <em>/</em>
                         <span class="post-date">
@@ -204,7 +204,7 @@
                     </div>
                     <div class="post-meta">
                         <span class="post-category">
-                            <a href="#">{{post.category}}</a>
+                            <a href="{% url 'post:category_news' post.category %}">{{post.category}}</a>
                         </span>
                         <em>/</em>
                         <span class="post-date">

@@ -12,7 +12,7 @@
         <article class="ciz-post-row">
             <div class="row">
                 <div class="col-lg-6 col-md-12">
-                    <a href="{% url 'post:post' post.id %}">
+                    <a href="{% url 'post:post' post.slug %}">
                         <img alt="{{post.title}}" src="{%if post.image %}{{post.image.url}}{% endif %}" />
                     </a>
                 </div>
@@ -30,7 +30,7 @@
                         </div>
                     </div>
                     <h2>
-                        <a href="{% url 'post:post' post.id %}">{{post.title|safe}}</a>
+                        <a href="{% url 'post:post' post.slug %}">{{post.title|safe}}</a>
                     </h2>
                 </div>
             </div>
@@ -39,20 +39,20 @@
                     {{post.post|truncatewords:100|safe}}
                 </p>
             </div>
-            <a href="{% url 'post:post' post.id %}" class="post-readmore">Read more</a>
+            <a href="{% url 'post:post' post.slug %}" class="post-readmore">Read more</a>
         </article>
         {% endfor %}
 
         <div class="paging">
             <ul class="pagination">
-                    {% if assignment.has_previous %}
-                  <li><a href="?page={{ assignment.previous_page_number }}">Prev</a></li>
+                    {% if post_list.has_previous %}
+                  <li><a href="?page={{ post_list.previous_page_number }}">Prev</a></li>
                   <li class="active"><a href="?page=1">1</a></li>
                     {% endif %}
-                  <li><a href="blog-default.html#">Page {{ assignment.number }} of {{ assignment.paginator.num_pages }}</a></li>
+                  <li><a href="?page={{ post_list.post_list.number }}">Page {{ post_list.number }} of {{ post_list.paginator.num_pages }}</a></li>
                     {% if assignment.has_next %}
-                  <li><a href="?page={{ assignment.next_page_number }}">Next</a></li>
-                    <li><a href="?page={{ assignment.paginator.num_pages }}">last</a></li>
+                  <li><a href="?page={{ post_list.next_page_number }}">Next</a></li>
+                    <li><a href="?page={{ post_list.paginator.num_pages }}">last</a></li>
                     {% endif %}
                 </ul>
         </div>
@@ -123,7 +123,7 @@
                 {% for post in popular_post %}
                 <article class="popular-item">
                     <div class="ciz-thumb">
-                        <a href="{% url 'post:post' post.id %}">
+                        <a href="{% url 'post:post' post.slug %}">
                             <img alt="{{post.title}}" src="{% if post.image %}{{post.image.url}} {% endif %}">
                         </a>
                     </div>
@@ -136,7 +136,7 @@
                             {{post.date}}
                         </span>
                     </div>
-                    <h5><a href="{% url 'post:post' post.id %}">{{post.title|safe}}</a></h5>
+                    <h5><a href="{% url 'post:post' post.slug %}">{{post.title|safe}}</a></h5>
                 </article>
                 {% endfor %}
             </div>
@@ -198,7 +198,7 @@
                         <img alt="{{post.title}}" src="{{post.image.url}}" />
                         0{{forloop.counter}}
                     </span>
-                    <h5><a href="{% url 'post:post' post.id %}">{{post.title}}</a></h5>
+                    <h5><a href="{% url 'post:post' post.slug %}">{{post.title}}</a></h5>
                 </li>
                 {% endfor %}
             </ul>

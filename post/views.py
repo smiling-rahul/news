@@ -117,6 +117,19 @@ def Science_and_Environment(request):
                   {'now': now(), 'post_list': post_list, 'category': category, 'popular_post': popular_post,
                    'trending_post': trending_post,})
 
+
+def category_news(request,cate_gory):
+    category = Category.objects.get(category=cate_gory)
+    post_list = Post.objects.filter(category=category).order_by('-date')
+    popular_post = Post.objects.filter(rating='3').order_by('-date')[:5]
+    trending_post = Post.objects.filter(rating='4').order_by('-date')[:5]
+    paginator = Paginator(post_list, 20)
+    page = request.GET.get('page')
+    post_list = paginator.get_page(page)
+    return render(request, 'post/category_three.html',
+                  {'now': now(), 'post_list': post_list, 'category': category, 'popular_post': popular_post,
+                   'trending_post': trending_post,})
+
 def post(request,slug):
     post = get_object_or_404(Post,slug=slug)
     share_string=quote_plus(post.title)
@@ -161,13 +174,13 @@ class SearchView(ListView):
 
         if query is not None:
             post_results= Post.objects.search(query)
+            category_result=Category.objects.search(query)
 
             # combine querysets
-            # queryset_chain = chain(
-            #     post_results
-            #
-            # )
-            qs = sorted(post_results,
+            queryset_chain = chain(
+                post_results,category_result
+            )
+            qs = sorted(queryset_chain,
                         key=lambda instance: instance.pk,
                         reverse=True)
             self.count = len(qs) # since qs is actually a list

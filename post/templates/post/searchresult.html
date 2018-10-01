@@ -13,7 +13,11 @@
                             {% with object|class_name as klass %}
                               {% if klass == 'Post' %}
                               <li>
-                                  <a href="{% url 'post:post' post.sluge %}" target="_blank">post: {{ object.title }}</a>
+                                  <a href="{% url 'post:post' object.slug %}" target="_blank">post: {{ object.title }}</a>
+                              </li>
+                                {% elif klass == 'Category' %}
+                                <li>
+                                  <a href="{% url 'post:category_news' object.category %}" target="_blank">{{ object.category }} News</a>
                               </li>
                               {% else %}
                                       <li>

@@ -1,6 +1,7 @@
 from django.urls import path,include
 from .views import index,post,Indian_News,Entertainment,World_News,\
-    Economics,Sports,Technology,Life_Style,Science_and_Environment,create_post,SearchView
+    Economics,Sports,Technology,Life_Style,Science_and_Environment,create_post,SearchView,\
+    category_news
 app_name ='post'
 urlpatterns = [
     path('',index,name='index'),
@@ -12,6 +13,8 @@ urlpatterns = [
     path('Technology/',Technology,name='Technology'),
     path('Life_Style/',Life_Style,name='Life_Style'),
     path('Science_and_Environment/',Science_and_Environment,name='Science_and_Environment'),
+
+    path('news/<cate_gory>',category_news,name='category_news'),
 
     path('search',SearchView.as_view(),name='search'),
 

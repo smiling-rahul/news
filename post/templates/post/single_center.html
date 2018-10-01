@@ -13,7 +13,7 @@
                 </h1>
                 <div class="post-meta">
                     <span class="post-category">
-                        <a href="category_three.html">{{post.category}}</a>
+                        <a href="{% url 'post:category_news' post.category %}">{{post.category}}</a>
                     </span>
                     <em>/</em>
                     <span class="post-date">
