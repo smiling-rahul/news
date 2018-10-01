@@ -25,8 +25,8 @@
                             <span>
                                 Share
                             </span>
-                            <a href="category_three.html#" class="facebook"><i class="fa fa-facebook"></i></a>
-                            <a href="category_three.html#" class="twitter"><i class="fa fa-twitter"></i></a>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u={{request.build_absolute_uri}}" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
+                            <a href="https://twitter.com/home?status={{ share_string }}%20{{request.build_absolute_uri}}" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a>
                         </div>
                     </div>
                     <h2>
@@ -44,17 +44,15 @@
         {% endfor %}
 
         <div class="paging">
-            <ul class="pagination">
-                    {% if post_list.has_previous %}
-                  <li><a href="?page={{ post_list.previous_page_number }}">Prev</a></li>
-                  <li class="active"><a href="?page=1">1</a></li>
-                    {% endif %}
-                  <li><a href="?page={{ post_list.post_list.number }}">Page {{ post_list.number }} of {{ post_list.paginator.num_pages }}</a></li>
-                    {% if assignment.has_next %}
-                  <li><a href="?page={{ post_list.next_page_number }}">Next</a></li>
-                    <li><a href="?page={{ post_list.paginator.num_pages }}">last</a></li>
-                    {% endif %}
-                </ul>
+            {% if post_list.has_previous %}
+                  <a href="?page={{ post_list.previous_page_number }}">Prev</a>
+                  <a href="?page=1">1</a>
+            {% endif %}
+                  <a class="current" href="?page={{ post_list.number }}">Page {{ post_list.number }} of {{ post_list.paginator.num_pages }}</a>
+            {% if assignment.has_next %}
+                  <a href="?page={{ post_list.next_page_number }}">Next</a>
+                  <a href="?page={{ post_list.paginator.num_pages }}">last</a>
+            {% endif %}
         </div>
     </div>
 
