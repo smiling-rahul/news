@@ -1,7 +1,7 @@
 from django.urls import path,include
 from .views import index,post,Indian_News,Entertainment,World_News,\
     Economics,Sports,Technology,Life_Style,Science_and_Environment,create_post,SearchView,\
-    category_news
+    category_news,photos,contact
 app_name ='post'
 urlpatterns = [
     path('',index,name='index'),
@@ -13,6 +13,8 @@ urlpatterns = [
     path('Technology/',Technology,name='Technology'),
     path('Life_Style/',Life_Style,name='Life_Style'),
     path('Science_and_Environment/',Science_and_Environment,name='Science_and_Environment'),
+    path('photos/',photos,name='photos'),
+    path('contact/',contact,name='contact'),
 
     path('news/<cate_gory>',category_news,name='category_news'),
 

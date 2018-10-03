@@ -1,0 +1,45 @@
+{% extends 'post/base.html'%}
+{% block title%}Photos result{% endblock %}
+{%block body %}
+
+<div class="colleft">
+        {% for post in post %}
+            {% if post %}
+                <!--post item-->
+                <article class="ciz-post">
+                    <div class="post-meta">
+                        <span class="post-category">
+                            <a href="{% url 'post:category_news' post.category %}">{{post.category}} </a>
+                        </span>
+                        <em>/</em>
+                        <span class="post-date">
+                            {{post.date}}
+                        </span>
+                        <div class="share-posts">
+                            <span>
+                                Share
+                            </span>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u={{request.build_absolute_uri}}" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
+                            <a href="https://twitter.com/home?status={{ share_string }}%20{{request.build_absolute_uri}}" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    <h2>
+                        <a href="{% url 'post:post' post.slug %}">{{post.title|safe}} </a>
+                    </h2>
+                    <div class="ciz-thumb" style="max-height:600px;overflow: auto;">
+                        <a href="{% url 'post:post' post.slug %}">
+                            <img alt="{{post.title}}" src="{% if post.image%}{{post.image.url}}{% endif %}" class="w3-image"/>
+                        </a>
+                    </div>
+                    <div class="post-content">
+                        <p>
+                            {{post.post|truncatewords:100|safe}}
+                        </p>
+                    </div>
+                    <a href=" {% url 'post:post' post.slug %} " class="post-readmore">Read more</a>
+                </article>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+{% endblock body %}

@@ -135,6 +135,19 @@ def post(request,slug):
     share_string=quote_plus(post.title)
     return render(request, 'post/single_center.html',{'now':now(),'post':post,'share_string':share_string})
 
+def photos(request):
+    post = Post.objects.all().order_by('-date')
+
+    paginator = Paginator(post, 20)
+    page = request.GET.get('page')
+    post = paginator.get_page(page)
+
+    return render(request, 'post/photos.html',{'post':post})
+
+def contact(request):
+    return render(request, 'post/contact.html', )
+
+
 
 def create_post(request):
     if request.user.is_authenticated:
